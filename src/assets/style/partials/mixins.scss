@@ -1,0 +1,7 @@
+// flex properties
+// center XY
+@mixin justify-align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
