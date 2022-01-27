@@ -1,6 +1,7 @@
 import Vue from 'vue';
 
 export default Vue.observable({
+    // data
     TestQuestions: [
         {
             question: "A cosa serve il tag break <br/> ?",
@@ -9,29 +10,56 @@ export default Vue.observable({
                     answer: "Ad andare a capo",
                     correct: true
                 },
-                {answer: "A rompere le pagine"},
-                {answer: "A creare una tabella"},
-                {answer: "A creare un paragrafo"}
+                {
+                    answer: "A rompere le pagine",
+                    correct: false
+                },
+                {
+                    answer: "A creare una tabella",
+                    correct: false
+                },
+                {
+                    answer: "A creare un paragrafo",
+                    correct: false
+                }
             ]
         },
         {
             question: "Cosa è possibile inserire nell'head del documento Html?",
             answers: [
-                {answer: "Immagini"},
+                {
+                    answer: "Immagini",
+                    correct: false
+                },
                 {
                     answer: "metadata",
                     correct: true
                 },
-                {answer: "tabelle"},
-                {answer: "contenuti multimediali"}
+                {
+                    answer: "tabelle",
+                    correct: false
+                },
+                {
+                    answer: "contenuti multimediali",
+                    correct: false
+                }
             ]
         },
         {
             question: "Per cosa sta HTML?",
             answers: [
-                {answer: "Home Text Markup Language"},
-                {answer: "HyperTool Markup Language"},
-                {answer: "Hyperlink Text Markup Language"},
+                {
+                    answer: "Home Text Markup Language",
+                    correct: false
+                },
+                {
+                    answer: "HyperTool Markup Language",
+                    correct: false
+                },
+                {
+                    answer: "Hyperlink Text Markup Language",
+                    correct: false
+                },
                 {
                     answer: "Hyper Text Markup Language",
                     correct: true
@@ -45,9 +73,18 @@ export default Vue.observable({
                     answer: "<h1>",
                     correct: true
                 },
-                {answer: "<head>"},
-                {answer: "<title>"},
-                {answer: "<h6>"}
+                {
+                    answer: "<head>",
+                    correct: false
+                },
+                {
+                    answer: "<title>",
+                    correct: false
+                },
+                {
+                    answer: "<h6>",
+                    correct: false
+                }
             ]
         },
         {
@@ -61,17 +98,32 @@ export default Vue.observable({
                     answer: "<h6>",
                     correct: true
                 },
-                {answer: "<h7>"},
-                {answer: "<h8>"}
+                {
+                    answer: "<h7>",
+                    correct: false
+                },
+                {
+                    answer: "<h8>",
+                    correct: false
+                }
             ],
             multipleChoice: true
         },
         {
             question: "Chi ha sviluppato l'Html?",
             answers: [
-                {answer: "Steve Jobs"},
-                {answer: "Bill Gates"},
-                {answer: "Elon Musk"},
+                {
+                    answer: "Steve Jobs",
+                    correct: false
+                },
+                {
+                    answer: "Bill Gates",
+                    correct: false
+                },
+                {
+                    answer: "Elon Musk",
+                    correct: false
+                },
                 {
                     answer: "Tim Berners-Lee",
                     correct: true
@@ -85,20 +137,32 @@ export default Vue.observable({
                     answer: ":first-child",
                     correct: true
                 },
-                {answer: ":first-parent"},
+                {
+                    answer: ":first-parent",
+                    correct: false
+                },
                 {
                     answer: "::after",
                     correct: true
                 },
-                {answer: "::yesterday"}
+                {
+                    answer: "::yesterday",
+                    correct: false
+                }
             ],
             multipleChoice: true
         },
         {
             question: "Quali proprietà CSS permettono di cambiare il colore di sfondo?",
             answers: [
-                {answer: "background-repeat"},
-                {answer: "background-colours"},
+                {
+                    answer: "background-repeat",
+                    correct: false
+                },
+                {
+                    answer: "background-colours",
+                    correct: false
+                },
                 {
                     answer: "background-color", 
                     correct: true
@@ -112,18 +176,24 @@ export default Vue.observable({
 
         },
         {
-            question: "Quali elementi hanno la proprietà disply inline di default?",
+            question: "Quali elementi hanno la proprietà display inline di default?",
             answers: [
                 {
                     answer: "<span>",
                     correct: true
                 },
-                {answer: "<section>"},
+                {
+                    answer: "<section>",
+                    correct: false
+                },
                 {
                     answer: "<a>",
                     correct: true
                 },
-                {answer: "<p>"}
+                {
+                    answer: "<p>",
+                    correct: false
+                }
             ],
             multipleChoice: true
 
@@ -135,20 +205,38 @@ export default Vue.observable({
                     answer: "left",
                     correct: true
                 },
-                {answer: "center"},
+                {
+                    answer: "center",
+                    correct: false
+                },
                 {
                     answer: "right",
                     correct: true
                 },
                 {
-                    answer: "none",
-                    correct: true
+                    answer: "bottom",
+                    correct: false
                 }
             ],
             multipleChoice: true
         }
     ],
     timeOut: false,
+    timeLeft: 3,
     testStarted: 0,
     checkedAnswers: [],
+    pickedAnswer: {},
+    score: 0,
+    // methods
+    timer: function() {
+        setInterval(() => {
+            if (this.timeLeft == 0) {
+                clearInterval(this.timer);
+                this.timeOut = true;
+            } else {
+                this.timeLeft--;
+            }
+            // this.timeLeft == 0 ? clearInterval(this.timer) && this.timeOut = true : this.timeLeft--
+        }, 1000)
+    }
 });

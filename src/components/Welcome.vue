@@ -9,8 +9,8 @@
         <p>
             clicca il pulsante inizia per cominciare
         </p>
-        <button @click="dataShared.testStarted++">
-            Start
+        <button @click="[dataShared.testStarted++, dataShared.timer()]">
+            Start test
         </button>
     </div>
 </template>
