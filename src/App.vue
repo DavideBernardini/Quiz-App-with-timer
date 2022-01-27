@@ -1,8 +1,8 @@
 <template>
     <div id="app">
-        <Welcome v-if="dataShared.testStarted == 0"/>
-        <Test v-else-if="dataShared.testStarted == 1"/>
-        <Modal v-if="dataShared.timeOut == true"/>
+        <Welcome v-if="dataShared.testStarted == false && dataShared.endTest == false"/>
+        <Test v-else-if="dataShared.testStarted == true && dataShared.endTest == false"/>
+        <Feedback v-if="dataShared.endTest == true"/>
     </div>
 </template>
 
@@ -10,14 +10,15 @@
 import dataShared from './share/dataShared';
 import Welcome from './components/Welcome.vue';
 import Test from './components/Test.vue';
-import Modal from './components/Modal.vue';
+import Feedback from './components/Feedback.vue'
+
 
 export default {
     name: "App",
     components: {
         Welcome,
         Test,
-        Modal
+        Feedback
     },
     data() {
         return {

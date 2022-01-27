@@ -9,7 +9,7 @@
         <p>
             clicca il pulsante inizia per cominciare
         </p>
-        <button @click="[dataShared.testStarted++, dataShared.timer()]">
+        <button @click="startTest()">
             Start test
         </button>
     </div>
@@ -26,6 +26,15 @@ export default {
             
         }
     },
+    methods: {
+        startTest() {
+            dataShared.timeOut = false;
+            dataShared.timeLeft = 10;
+            dataShared.testStarted = true;
+            dataShared.timer();
+            dataShared.attempts++;
+        }
+    }
 }
 </script>
 

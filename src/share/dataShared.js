@@ -222,13 +222,15 @@ export default Vue.observable({
         }
     ],
     timeOut: false,
-    timeLeft: 3,
-    testStarted: 0,
+    timeLeft: 10,
+    testStarted: false,
+    endTest: false,
+    attempts: 0,
     checkedAnswers: [],
     pickedAnswer: {},
     score: 0,
     // methods
-    timer: function() {
+    timer() {
         setInterval(() => {
             if (this.timeLeft == 0) {
                 clearInterval(this.timer);
