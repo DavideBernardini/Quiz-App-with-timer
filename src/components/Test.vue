@@ -47,9 +47,19 @@
                 <!-- /ciclo se risposta singola -->
             </div>
             <!-- ciclo su quesiti random -->
-            <button @click="[isCorrect(), nextQuestion()]">
-                {{skipOrAnswer()}}
+
+            <button @click="[nextQuestion()]">
+                Continua
             </button>
+
+            <!-- Modale minimo risposte -->
+            <div v-if="minAnswModal">
+                Rispondi bene!!
+                <button @click="[minAnswModal = false, dataShared.pauseTimer = false]">
+                    Ok
+                </button>
+            </div>
+            <!-- /Modale minimo risposte -->
         </div>
         <!-- /domanda e risposte -->
     </div>
@@ -65,6 +75,7 @@ export default {
             dataShared,
             x: 0,
             y: 1,
+            minAnswModal: false
         }
     },
     computed: {
@@ -98,6 +109,10 @@ export default {
             }
         },
         nextQuestion() {
+            if (dataShared.checkedAnswers.length < 2 && Object.keys(dataShared.pickedAnswer).length == 0 && dataShared.timeOut == false) {
+                dataShared.pauseTimer = true;
+                return this.minAnswModal = true;
+            }
             if (this.y < this.randomQuestions.length) {
                 this.x++;
                 this.y++;
@@ -106,16 +121,12 @@ export default {
                 dataShared.timeOut = false;
                 dataShared.timeLeft = 10;
             } else if (this.y == this.randomQuestions.length) {
+                dataShared.timeOut = false;
+                dataShared.timeLeft = 10;
                 dataShared.testStarted = false;
                 dataShared.endTest = true;
             }
-        },
-        skipOrAnswer() {
-            if (dataShared.checkedAnswers.length != [] ||  Object.keys(dataShared.pickedAnswer).length) {
-                return "Rispondi e continua";
-            } else {
-                return "Salta domanda";
-            }
+            
         }
     }
 }

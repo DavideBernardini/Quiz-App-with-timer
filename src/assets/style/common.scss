@@ -19,6 +19,12 @@ input {
 
 .wrapper {
     margin: auto;
-    border: 1px solid black; /*debug*/
-    padding: 2rem;
+    width: 1140px;
+    min-height: 60%;
+    padding: 4rem 3rem;
+    background: rgba(255, 255, 255, 0.375);
+    box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    text-align: center;
 }

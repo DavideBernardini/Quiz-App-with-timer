@@ -34,5 +34,6 @@ export default {
 #app {
     height: 100vh;
     display: flex;
+    background-color: lightseagreen;
 }
 </style>

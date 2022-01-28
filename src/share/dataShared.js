@@ -223,6 +223,7 @@ export default Vue.observable({
     ],
     timeOut: false,
     timeLeft: 10,
+    pauseTimer: false,
     testStarted: false,
     endTest: false,
     attempts: 0,
@@ -235,7 +236,8 @@ export default Vue.observable({
             if (this.timeLeft == 0) {
                 clearInterval(this.timer);
                 this.timeOut = true;
-            } else {
+            } else if (!this.pauseTimer) {
+                clearInterval(this.timer);
                 this.timeLeft--;
             }
             // this.timeLeft == 0 ? clearInterval(this.timer) && this.timeOut = true : this.timeLeft--
