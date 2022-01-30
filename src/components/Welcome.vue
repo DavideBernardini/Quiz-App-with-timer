@@ -1,17 +1,15 @@
 <template>
     <div class="wrapper">
+        <h2>
+            Benvenuto nel test di fine modulo Html/CCS base
+        </h2>
         <p>
-            benvenuto nel test di fine modulo
+            Per superare il test devi rispondere correttamente ad almeno 2 domande su 3, alcune domande sono a risposta singola e altre a risposta multipla, per rispondere correttamente a quest'ultime è necessario segnare tutte e soltanto le risposte corrette.
         </p>
-        <p>
-            per superare il test devi rispondere correttamente ad almeno 2 domande su 3
-        </p>
-        <p>
-            clicca il pulsante inizia per cominciare
-        </p>
-        <button @click="startTest()">
-            Start test
-        </button>
+        <div class="btn" @click="startTest()">
+            Start
+        </div>
+        
     </div>
 </template>
 
@@ -22,8 +20,7 @@ export default {
     name: 'Welcome',
     data() {
         return {
-            dataShared,
-            
+            dataShared
         }
     },
     methods: {
@@ -31,7 +28,7 @@ export default {
             dataShared.timeOut = false;
             dataShared.timeLeft = 10;
             dataShared.testStarted = true;
-            dataShared.timer();
+            
             dataShared.attempts++;
         }
     }
@@ -39,5 +36,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/style/partials/mixins.scss';
 
+.wrapper {
+    @include flex-center-column-y;
+}
+
+h2 {
+    font-size: 44px;
+    text-align: left;
+}
+p {
+    margin: 20px 0 50px;
+    font-size: 20px;
+    width: 80%;
+}
+.btn {
+    align-self: flex-end;
+    margin-right: 55px;
+}
 </style>

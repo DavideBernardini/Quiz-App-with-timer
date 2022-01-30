@@ -225,6 +225,7 @@ export default Vue.observable({
     timeLeft: 10,
     pauseTimer: false,
     testStarted: false,
+    minAnswModal: false,
     endTest: false,
     attempts: 0,
     checkedAnswers: [],
@@ -234,10 +235,10 @@ export default Vue.observable({
     timer() {
         setInterval(() => {
             if (this.timeLeft == 0) {
-                clearInterval(this.timer);
                 this.timeOut = true;
+                this.minAnswModal = false;
+                
             } else if (!this.pauseTimer) {
-                clearInterval(this.timer);
                 this.timeLeft--;
             }
             // this.timeLeft == 0 ? clearInterval(this.timer) && this.timeOut = true : this.timeLeft--

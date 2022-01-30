@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-horizontal": "^0.8.12"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",

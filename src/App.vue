@@ -33,7 +33,24 @@ export default {
 
 #app {
     height: 100vh;
+    position: relative;
     display: flex;
-    background-color: lightseagreen;
+    background: linear-gradient(-45deg, #D5ABCC, #E8CFE3, #B1D8E2, #6fc6dc,);
+	background-size: 400% 400%;
+	animation: gradient 30s ease infinite;
+    * {
+        scroll-behavior: smooth;
+    }
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 </style>

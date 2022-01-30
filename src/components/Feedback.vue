@@ -6,18 +6,32 @@
         <h2 v-else>
             Test non superato
         </h2>
-        <div v-if="feedback.corrects" class="score">{{feedback.corrects}}</div>
-        <div v-if="feedback.wrong" class="score">{{feedback.wrong}}</div>
-        <div class="score">{{feedback.percentage}}%</div>
-        <button v-if="dataShared.attempts < 2 && dataShared.score < 2" @click="restartTest()">
-            Hai un altro tentativo, clicca per ricominciare il test
-        </button>
-        <div v-else-if="dataShared.score < 2">
-            Tentativi terminati :'(
+        <div class="score">
+            <div class="score-correct" v-if="feedback.corrects">
+                {{feedback.corrects}}
+            </div>
+            <div class="score-wrong" v-if="feedback.wrong">
+                {{feedback.wrong}}
+            </div>
+            <div class="score-percentage">
+                <span>Rientri nel</span> <span>{{feedback.percentage}}%</span>
+            </div>
         </div>
-        <div v-else>
-            Complimenti!
+        <div class="retry-message">
+            <div class="retry" v-if="dataShared.attempts < 2 && dataShared.score < 2">
+                Hai un altro tentativo, clicca per riprovare
+                <button class="btn" @click="restartTest()">
+                    <i class="fas fa-redo-alt"></i>
+                </button>
+            </div>
+            <div v-else-if="dataShared.score < 2">
+                Tentativi terminati <i class="far fa-frown"></i>
+            </div>
+            <div v-else>
+                Complimenti! <i class="fas fa-trophy"></i>
+            </div>
         </div>
+        
     </div>
 </template>
 
@@ -84,5 +98,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/style/partials/mixins.scss';
 
+.wrapper {
+    @include flex-center-column-xy;
+    text-align: center;
+    h2 {
+        font-size: 75px;
+    }
+    .score {
+        font-size: 25px;
+        font-size: 25px;
+        margin: 10px 0 30px;
+        &-percentage {
+            span {
+                vertical-align: middle;
+            }
+        }
+    }
+    .retry-message {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .btn {
+        display: inline-block;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        margin-left: 5px;
+    }
+}
 </style>

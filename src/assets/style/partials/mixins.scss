@@ -1,7 +1,25 @@
 // flex properties
-// center XY
-@mixin justify-align-center {
+@mixin flex-column {
     display: flex;
+    flex-direction: column;
+}
+@mixin flex-center-column-y {
+    @include flex-column;
     justify-content: center;
+}
+@mixin flex-center-column-x {
+    @include flex-column;
     align-items: center;
+}
+@mixin flex-center-column-xy {
+    @include flex-center-column-x;
+    @include flex-center-column-y;
+}
+
+// position
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
