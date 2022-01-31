@@ -28,9 +28,7 @@ export default {
             dataShared.timeOut = false;
             dataShared.timeLeft = 10;
             dataShared.testStarted = true;
-            if (dataShared.attempts < 1) {
-                dataShared.timer();
-            }
+            dataShared.timer();
             dataShared.attempts++;
 
         }
@@ -57,5 +55,45 @@ p {
 .btn {
     align-self: flex-end;
     margin-right: 55px;
+}
+
+// responsive
+// xl 
+@media screen and (max-width: 1300px) {
+    h2 {
+        font-size: 36px;
+    }
+    p {
+        margin: 22px 0 40px;
+        font-size: 19px;
+        width: 75%;
+    }
+    .btn {
+        margin-right: 35px;
+    }
+}
+// l
+@media screen and (max-width: 1100px) {
+    h2 {
+        font-size: 36px;
+    }
+    p {
+        margin: 20px 0 25px;
+        font-size: 18px;
+        width: 71%;
+    }
+    .btn {
+        margin-right: 35px;
+    }
+}
+// m
+@media screen and (max-width: 870px) {
+    p {
+        margin: 25px 0 36px;
+        width: 100%;
+    }
+    .btn {
+        margin: 0 12px 0 0;
+    }
 }
 </style>

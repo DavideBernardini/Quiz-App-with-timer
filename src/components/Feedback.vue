@@ -32,7 +32,7 @@
                 Tentativi terminati <i class="far fa-frown"></i>
             </div>
             <div v-else>
-                <i class="fas fa-trophy"></i>
+                Complimenti! <i class="fas fa-trophy"></i>
             </div>
         </div>
         
@@ -105,7 +105,7 @@ export default {
 @import '../assets/style/partials/mixins.scss';
 
 .wrapper {
-    display: block;
+    @include flex-center-column-xy;
     width: 980px;
     height: 460px;
     h2 {
@@ -113,8 +113,8 @@ export default {
     }
     .score {
         font-size: 25px;
-        font-size: 25px;
-        margin: 10px 0 30px;
+        margin: 20px 0 40px;
+        text-align: center;
         &-percentage {
             span {
                 vertical-align: middle;
@@ -127,7 +127,11 @@ export default {
     }
     .fa-frown {
         font-size: 32px;
-        vertical-align: middle;
+        vertical-align: top;
+    }
+    .fa-trophy {
+        font-size: 35px;
+        vertical-align: bottom;
     }
     .btn {
         display: inline-block;
@@ -135,6 +139,82 @@ export default {
         height: 45px;
         font-size: 20px;
         margin-left: 5px;
+    }
+}
+
+// responsive
+// xl 
+@media screen and (max-width: 1300px) {
+    .wrapper {
+        width: 920px;
+        height: 436px;
+        h2 {
+            font-size: 65px;
+        }
+        .score {
+            font-size: 23px;
+            margin: 20px 0 40px;
+        }
+        .retry-message {
+            font-size: 22px;
+        }
+        .fa-frown {
+            font-size: 32px;
+            vertical-align: middle;
+        }
+        .btn {
+            width: 42px;
+            height: 42px;
+            font-size: 18px;
+        }
+    }
+}
+// l
+@media screen and (max-width: 1100px) {
+    .wrapper {
+        width: 800px;
+        h2 {
+            font-size: 62px;
+        }
+        .score {
+            font-size: 22px;
+        }
+        .retry-message {
+            font-size: 21px;
+        }
+        .fa-frown {
+            font-size: 32px;
+            vertical-align: middle;
+        }
+        .btn {
+            width: 42px;
+            height: 42px;
+            font-size: 18px;
+        }
+    }
+}
+// m
+@media screen and (max-width: 870px) {
+    .wrapper {
+        width: 600px;
+        h2 {
+            font-size: 54px;
+        }
+        .score {
+            font-size: 22px;
+        }
+        .retry-message {
+            font-size: 21px;
+        }
+        .fa-frown {
+            font-size: 32px;
+            vertical-align: middle;
+        }
+        .btn {
+            width: 42px;
+            height: 42px;
+            font-size: 18px;
+        }
     }
 }
 </style>

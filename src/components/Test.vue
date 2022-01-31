@@ -306,18 +306,18 @@ export default {
                 overflow: hidden;
             }
             &-transition-right {
-                -webkit-transition: 0.5s;
-                -moz-transition: 0.5s;
-                -ms-transition: 0.5s;
-                -o-transition: 0.5s;
+                -webkit-transition: 0.35s;
+                -moz-transition: 0.35s;
+                -ms-transition: 0.35s;
+                -o-transition: 0.35s;
                 transition: 0.35s;
                 transform: translateX(-285px);
             }
             &-transition-left {
-                -webkit-transition: 0.5s;
-                -moz-transition: 0.5s;
-                -ms-transition: 0.5s;
-                -o-transition: 0.5s;
+                -webkit-transition: 0.35s;
+                -moz-transition: 0.35s;
+                -ms-transition: 0.35s;
+                -o-transition: 0.35s;
                 transition: 0.35s;
                 transform: translateX(0px);
             }
@@ -400,6 +400,7 @@ export default {
         width: 150px;
         height: 45px;
         font-size: 18px;
+        align-self: center;
     }
 }
 // transitions
@@ -437,5 +438,243 @@ export default {
 .fade-down-enter {
   transform: translateY(-30px);
   opacity: 0;
+}
+
+// responsive
+// xl
+@media screen and (max-width: 1300px) {
+    .wrapper {
+        height: 505px;
+    }
+    .test {
+        .time-left {
+            font-size: 30px;
+            i {
+                font-size: 28px;
+            }
+        }
+        .question {
+            font-size: 33px;
+        }
+        .question-info {
+            font-size: 17px;
+        }
+        .answers {
+            &-container {
+                width: 758px;
+                height: 178px;
+            }
+            &-card {
+                box-shadow: 0 0.7rem 1.3rem 0 rgba(0, 0, 0, 0.1);
+                width: 210px;
+                height: 110px;
+                margin: 0 24px;
+                label {
+                    font-size: 19px;
+                }
+            }
+            .slider {
+                &-transition-right {
+                    transform: translateX(-258px);
+                }
+            }
+            .btn {
+                width: 38px;
+                height: 38px;
+                font-size: 28px;
+                }
+            .btn.left {
+                i {
+                    transform: translateX(-2px);  
+                }
+            }
+            .btn.right {
+                i {
+                    transform: translateX(2px);  
+                }
+            }
+        }
+    }
+    .min-Answers-msg {
+        height: 290px;
+    }
+    .timeout {
+    h2 {
+        font-size: 60px;
+    }
+    p {
+        font-size: 21px;
+        margin: 30px 0 45px;
+    }
+    .btn {
+        width: 140px;
+        height: 42px;
+        font-size: 16px;
+    }
+}
+}
+// l
+@media screen and (max-width: 1100px) {
+    .wrapper {
+        height: 505px;
+    }
+    .test {
+        .time-left {
+            font-size: 28px;
+            i {
+                font-size: 26px;
+            }
+        }
+        .question {
+            font-size: 33px;
+        }
+        .question-info {
+            font-size: 17px;
+        }
+        .answers {
+            &-container {
+                width: 544px;
+            }
+            &-card {
+                box-shadow: 0 0.7rem 1.3rem 0 rgba(0, 0, 0, 0.1);
+                width: 230px;
+                height: 110px;
+                margin: 0 24px;
+                label {
+                    font-size: 18px;
+                }
+            }
+            .slider {
+                &-transition-right {
+                    -webkit-transition: 0.45s;
+                    -moz-transition: 0.45s;
+                    -ms-transition: 0.45s;
+                    -o-transition: 0.45s;
+                    transition: 0.45s;
+                    transform: translateX(-560px);
+                }
+                &-transition-left {
+                    -webkit-transition: 0.45s;
+                    -moz-transition: 0.45s;
+                    -ms-transition: 0.45s;
+                    -o-transition: 0.45s;
+                    transition: 0.45s;
+                }
+            }
+            .btn {
+                width: 38px;
+                height: 38px;
+                font-size: 28px;
+                }
+            .btn.left {
+                i {
+                    transform: translateX(-2px);  
+                }
+            }
+            .btn.right {
+                i {
+                    transform: translateX(2px);  
+                }
+            }
+        }
+    }
+    .min-Answers-msg {
+        height: 290px;
+    }
+    .timeout {
+    h2 {
+        font-size: 58px;
+    }
+    p {
+        font-size: 20px;
+        margin: 30px 0 40px;
+        text-align: center;
+    }
+    .btn {
+        width: 140px;
+        height: 42px;
+        font-size: 16px;
+    }
+}
+}
+// m
+@media screen and (max-width: 870px) {
+    .wrapper {
+        height: 525px;
+    }
+    .btn {
+        margin: 15px 0 0;
+    }
+    .test {
+        .time-left {
+            font-size: 28px;
+            i {
+                font-size: 26px;
+            }
+        }
+        .question {
+            font-size: 30px;
+            margin-top: 10px;
+        }
+        .question-info {
+            font-size: 16px;
+        }
+        .answers {
+            &-container {
+                width: 493px;
+                margin: 0 15px 0 8px;
+            }
+            &-card {
+                box-shadow: 0 0.7rem 1.3rem 0 rgba(0, 0, 0, 0.1);
+                width: 210px;
+                height: 110px;
+                margin: 0 20px;
+                label {
+                    font-size: 17px;
+                }
+            }
+            .slider {
+                &-transition-right {
+                    -webkit-transition: 0.5s;
+                    -moz-transition: 0.5s;
+                    -ms-transition: 0.5s;
+                    -o-transition: 0.5s;
+                    transition: 0.5s;
+                    transform: translateX(-500px);
+                }
+                &-transition-left {
+                    -webkit-transition: 0.5s;
+                    -moz-transition: 0.5s;
+                    -ms-transition: 0.5s;
+                    -o-transition: 0.5s;
+                    transition: 0.5s;
+                }
+                .btn {
+                    font-size: 40px;
+                    background: none;
+                    color: #1f1f1f;
+                    }
+                .btn.left {
+                    transform: translate(10px);
+                }
+                .btn.right {
+                    transform: translate(-10px);
+                }
+                .btn.inactive {
+                    border: none;
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+    .min-Answers-msg {
+        height: 290px;
+        width: 580px;
+    }
+    .timeout {
+        p {
+            font-size: 18px;
+        }
+    }
 }
 </style>
