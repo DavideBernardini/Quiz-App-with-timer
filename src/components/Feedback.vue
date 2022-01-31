@@ -14,7 +14,11 @@
                 {{feedback.wrong}}
             </div>
             <div class="score-percentage">
-                <span>Rientri nel</span> <span>{{feedback.percentage}}%</span>
+                <span v-if="feedback.percentage == 0">
+                    Rientri nello
+                </span>
+                <span v-else>Rientri nel</span>
+                 <span>{{feedback.percentage}}%</span>
             </div>
         </div>
         <div class="retry-message">
@@ -103,6 +107,8 @@ export default {
 .wrapper {
     @include flex-center-column-xy;
     text-align: center;
+    width: 1000px;
+    height: 460px;
     h2 {
         font-size: 75px;
     }

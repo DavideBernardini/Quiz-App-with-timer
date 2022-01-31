@@ -20,24 +20,36 @@
                 <i class="fas fa-hourglass-half" ></i>
                 {{dataShared.timeLeft}}
             </div>
+            
             <!-- ciclo su quesiti random -->
             <div v-for="(item, index) in randomQuestions.slice(x,y)" :key="index">
                 <h2 class="question">
                     {{item.question}}
                 </h2>
+
                 <!-- risposta multipla -->
                 <div class="answers" v-if="item.multipleChoice">
                     <div class="question-info">
                         Più di una risposta è corretta
                     </div>
 
-                    <div class="answers-container">
-                        <!-- slider -->
-                        <vue-horizontal class="vue-horizontal-slider">
-                            <div class="vue-horizontal-slide"
-                            v-for="(element, i) in item.answers" 
-                            :key="i">
-                                <div class="answers-card">
+                    <!-- slider -->
+                    <div class="slider">
+
+                        <button class="btn" 
+                        @click="onTheRight = false"
+                        :class="{'inactive' : !onTheRight}">
+                            <i class="fas fa-angle-left"></i>
+                        </button>
+
+                        <div class="slider-wrap">
+                            <!-- ciclo risposte -->
+                            <ul class="answers-container"
+                            :class="{'slider-transition-right' : onTheRight, 'slider-transition-left' : !onTheRight}">
+
+                                <li class="answers-card"
+                                v-for="(element, i) in item.answers" 
+                                :key="i">
                                     <input type="checkbox" name="answers" 
                                     :id="i" 
                                     :value="element" 
@@ -45,38 +57,45 @@
                                     <label :for="i" :class="checked(element)">
                                         {{element.answer}}
                                     </label> 
-                                </div>
-                            </div>
-                            <!-- slider buttons -->
-                            <template v-slot:btn-prev>
-                                <button class="btn slides">
-                                    <i class="fas fa-angle-left"></i>
-                                </button>
-                            </template>
-                            <template v-slot:btn-next>
-                                <button class="btn slides">
-                                    <i class="fas fa-angle-right"></i>
-                                </button>
-                            </template>
-                            <!-- /slider buttons -->
-                        </vue-horizontal>
+                                </li>
+
+                            </ul>
+                            <!-- /ciclo risposte -->
+                        </div>
+
+                        <button class="btn"
+                        @click="onTheRight = true"
+                        :class="{'inactive' : onTheRight}">
+                            <i class="fas fa-angle-right"></i>
+                        </button>
                         <!-- /slider -->
+
                     </div>
-                    
                 </div>
                 <!-- /risposta multipla -->
+
                 <!-- risposta singola -->
                 <div class="answers" v-else>
                     <div class="question-info">
                         Solo una risposta è corretta
                     </div>
-                    <div class="answers-container">
-                        <!-- slider -->
-                        <vue-horizontal class="vue-horizontal-slider">
-                            <div class="vue-horizontal-slide"
-                            v-for="(element, i) in item.answers" 
-                            :key="i">
-                                <div class="answers-card">
+                    <!-- slider -->
+                    <div class="slider">
+
+                        <button class="btn" 
+                        @click="onTheRight = false"
+                        :class="{'inactive' : !onTheRight}">
+                            <i class="fas fa-angle-left"></i>
+                        </button>
+
+                        <div class="slider-wrap">
+                            <!-- ciclo risposte -->
+                            <ul class="answers-container"
+                            :class="{'slider-transition-right' : onTheRight, 'slider-transition-left' : !onTheRight}">
+
+                                <li class="answers-card"
+                                v-for="(element, i) in item.answers" 
+                                :key="i">
                                     <input type="radio" name="answers" 
                                     :id="i" 
                                     :value="element" 
@@ -85,22 +104,17 @@
                                     :class="{'selected' : element == dataShared.pickedAnswer}">
                                         {{element.answer}}
                                     </label> 
-                                </div>
-                            </div>
-                            <!-- slider buttons -->
-                            <template v-slot:btn-next>
-                                <button class="btn slides">
-                                    <i class="fas fa-angle-right"></i>
-                                </button>
-                            </template>
-                            <template v-slot:btn-prev>
-                                <button class="btn slides">
-                                    <i class="fas fa-angle-left"></i>
-                                </button>
-                            </template>
-                            
-                            <!-- /slider buttons -->
-                        </vue-horizontal>
+                                </li>
+
+                            </ul>
+                            <!-- /ciclo risposte -->
+                        </div>
+
+                        <button class="btn"
+                        @click="onTheRight = true"
+                        :class="{'inactive' : onTheRight}">
+                            <i class="fas fa-angle-right"></i>
+                        </button>
                         <!-- /slider -->
                     </div>
                 </div>
@@ -132,18 +146,17 @@
 
 <script>
 import dataShared from './../share/dataShared';
-import VueHorizontal from 'vue-horizontal';
 
 export default {
     name: 'Test',
     components: {
-        VueHorizontal
     },
     data() {
         return {
             dataShared,
             x: 0,
-            y: 1
+            y: 1,
+            onTheRight: false,
         }
     },
     computed: {
@@ -163,7 +176,7 @@ export default {
             } else {
                 return "View results";
             }
-        }
+        },
     },
     methods: {
         checked(el) {
@@ -184,19 +197,23 @@ export default {
             }
         },
         nextQuestion() {
-            
             if (dataShared.checkedAnswers.length < 2 && Object.keys(dataShared.pickedAnswer).length == 0 && dataShared.timeOut == false) {
+
                 dataShared.pauseTimer = true;
                 return dataShared.minAnswModal = true;
             }
             if (this.y < this.randomQuestions.length) {
+
                 this.x++;
                 this.y++;
                 dataShared.checkedAnswers = [];
                 dataShared.pickedAnswer = {};
                 dataShared.timeOut = false;
                 dataShared.timeLeft = 10;
+                this.onTheRight = false;
+
             } else if (this.y == this.randomQuestions.length) {
+
                 dataShared.timeOut = false;
                 dataShared.timeLeft = 10;
                 dataShared.testStarted = false;
@@ -210,6 +227,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/style/partials/mixins.scss';
+.wrap {
+    height: 515px;
+}
 .btn {
         align-self: flex-end;
         margin: 15px 28px 0;
@@ -236,26 +256,12 @@ export default {
     }
     .answers {
         @include flex-center-column-x;
-        .vue-horizontal-slider {
-            width: 845px;
-        }
         &-container {
             display: flex;
-            justify-content: center;
-            .btn.slides {
-                margin: 0;
-                align-self: center;
-                font-size: 29px;
-                .fas {
-                    vertical-align: middle;
-                    transform: translate(-10%, -6%);
-                }
-            }
-            .vue-horizontal-slide {
-                height: 210px;
-                display: flex;
-                align-items: center;
-            }
+            width: 830px;
+            height: 205px;
+            align-items: center;
+            margin: 0 20px 0 10px;
         }
         &-card {
             background: rgba(255, 255, 255, 0.3);
@@ -266,6 +272,7 @@ export default {
             margin: 0 30px;
             transition: transform 200ms ease;
             overflow: hidden;
+            flex-shrink: 0;
             label {
                 cursor: pointer;
                 display: flex;
@@ -280,13 +287,42 @@ export default {
         &-card:hover {
             transform: scale(1.1);
         }
-        .btn {
-            display: inline-block;
-            width: 45px;
-            height: 45px;
-            font-size: 20px;
-            margin-left: 5px;
+        .slider {
+            display: flex;
+            &-wrap {
+                overflow: hidden;
+            }
+            &-transition-right {
+                -webkit-transition: 0.5s;
+                -moz-transition: 0.5s;
+                -ms-transition: 0.5s;
+                -o-transition: 0.5s;
+                transition: 0.5s;
+                transform: translateX(-285px);
+            }
+            &-transition-left {
+                -webkit-transition: 0.5s;
+                -moz-transition: 0.5s;
+                -ms-transition: 0.5s;
+                -o-transition: 0.5s;
+                transition: 0.5s;
+                transform: translateX(0px);
+            }
+            .btn {
+                display: inline-block;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                margin: 0;
+                align-self: center;
+            }
+            .btn.inactive {
+                color: black;
+                background-color: inherit;
+                border: 3.5px solid black;
+            }
         }
+        
     }
     
     .hide-next {
