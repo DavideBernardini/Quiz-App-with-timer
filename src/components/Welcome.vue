@@ -28,8 +28,11 @@ export default {
             dataShared.timeOut = false;
             dataShared.timeLeft = 10;
             dataShared.testStarted = true;
-            
+            if (dataShared.attempts < 1) {
+                dataShared.timer();
+            }
             dataShared.attempts++;
+
         }
     }
 }
@@ -47,8 +50,8 @@ h2 {
     text-align: left;
 }
 p {
-    margin: 20px 0 50px;
-    font-size: 20px;
+    margin: 22px 0 50px;
+    font-size: 20.5px;
     width: 80%;
 }
 .btn {

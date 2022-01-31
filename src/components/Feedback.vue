@@ -15,15 +15,15 @@
             </div>
             <div class="score-percentage">
                 <span v-if="feedback.percentage == 0">
-                    Rientri nello
+                    Rientri nello 
                 </span>
-                <span v-else>Rientri nel</span>
+                <span v-else>Rientri nel </span>
                  <span>{{feedback.percentage}}%</span>
             </div>
         </div>
         <div class="retry-message">
             <div class="retry" v-if="dataShared.attempts < 2 && dataShared.score < 2">
-                Hai un altro tentativo, clicca per riprovare
+                Clicca per riprovare
                 <button class="btn" @click="restartTest()">
                     <i class="fas fa-redo-alt"></i>
                 </button>
@@ -32,7 +32,7 @@
                 Tentativi terminati <i class="far fa-frown"></i>
             </div>
             <div v-else>
-                Complimenti! <i class="fas fa-trophy"></i>
+                <i class="fas fa-trophy"></i>
             </div>
         </div>
         
@@ -105,9 +105,8 @@ export default {
 @import '../assets/style/partials/mixins.scss';
 
 .wrapper {
-    @include flex-center-column-xy;
-    text-align: center;
-    width: 1000px;
+    display: block;
+    width: 980px;
     height: 460px;
     h2 {
         font-size: 75px;
@@ -123,8 +122,12 @@ export default {
         }
     }
     .retry-message {
-        font-size: 18px;
+        font-size: 24px;
         font-weight: 500;
+    }
+    .fa-frown {
+        font-size: 32px;
+        vertical-align: middle;
     }
     .btn {
         display: inline-block;

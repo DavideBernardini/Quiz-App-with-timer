@@ -1,8 +1,16 @@
 <template>
     <div id="app">
-        <Welcome v-if="dataShared.testStarted == false && dataShared.endTest == false"/>
-        <Test v-else-if="dataShared.testStarted == true && dataShared.endTest == false"/>
-        <Feedback v-if="dataShared.endTest == true"/>
+        <transition name="appear-down" appear mode="out-in">
+            <Welcome v-if="dataShared.testStarted == false && dataShared.endTest == false"/>
+        </transition>
+
+        <transition name="appear-left">
+            <Test v-if="dataShared.testStarted == true && dataShared.endTest == false"/>
+        </transition>
+
+        <transition name="appear-scale">
+            <Feedback v-if="dataShared.endTest == true"/>
+        </transition>
     </div>
 </template>
 
@@ -35,9 +43,9 @@ export default {
     height: 100vh;
     position: relative;
     display: flex;
-    background: linear-gradient(-45deg, #D5ABCC, #E8CFE3, #B1D8E2, #6fc6dc,);
+    background: linear-gradient(-45deg, #D5ABCC, #a8e3f1, #E8CFE3,  #80ccdf,);
 	background-size: 400% 400%;
-	animation: gradient 30s ease infinite;
+	animation: gradient 20s ease infinite;
     * {
         scroll-behavior: smooth;
     }
@@ -52,5 +60,30 @@ export default {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+// transitions
+// Welcome
+.appear-down-enter-active {
+  transition: all 0.8s ease;
+}
+.appear-down-enter {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+// Test
+.appear-left-enter-active {
+  transition: all 0.8s ease;
+}
+.appear-left-enter {
+  transform: translatex(30px);
+  opacity: 0;
+}
+// feedback 
+.appear-scale-enter-active {
+  transition: all 0.4s ease;
+}
+.appear-scale-enter {
+  transform: scale(50%);
+  opacity: 0;
 }
 </style>

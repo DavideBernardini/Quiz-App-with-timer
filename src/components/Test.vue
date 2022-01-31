@@ -1,145 +1,159 @@
 <template>
     <div class="wrapper">
         <!-- timeout -->
-        <div class="timeout" v-if="dataShared.timeOut">
-            <h2>
-                Tempo scaduto
-            </h2>
-            <p>
-                Non hai risposto entro lo scadere del tempo, l'eventuale selezione non sarà conteggiata
-            </p>
-            <button class="btn" @click="nextQuestion()">
-                {{nextOrEnd}}
-            </button>
-        </div>
+        <transition name="fade-down" mode="out-in">
+            <div class="timeout" v-if="dataShared.timeOut">
+                <h2>
+                    Tempo scaduto
+                </h2>
+                <p>
+                    Non hai risposto entro lo scadere del tempo, l'eventuale selezione non sarà conteggiata
+                </p>
+                <button class="btn" @click="nextQuestion()">
+                    {{nextOrEnd}}
+                </button>
+            </div>
+        </transition>
+
         <!-- /timeout -->
 
         <!-- domanda e risposte -->
-        <div class="test" v-else>
-            <div class="time-left">
-                <i class="fas fa-hourglass-half" ></i>
-                {{dataShared.timeLeft}}
-            </div>
-            
-            <!-- ciclo su quesiti random -->
-            <div v-for="(item, index) in randomQuestions.slice(x,y)" :key="index">
-                <h2 class="question">
-                    {{item.question}}
-                </h2>
+        <transition name="fade-test">
+            <div class="test" v-if="!dataShared.timeOut">
+                <div class="time-left">
+                    <i class="fas fa-stopwatch"></i>
+                    {{dataShared.timeLeft}}
+                </div>
+                
+                <!-- ciclo su quesiti random -->
+                
+                <div v-for="(item, index) in randomQuestions" 
+                :key="index">
+                    <transition name="fade" mode="in-out">
+                        <div class="transition-wrapper" v-if="randomQuestions.indexOf(item) == x">
+                            <h2 class="question">
+                                {{item.question}}
+                            </h2>
 
-                <!-- risposta multipla -->
-                <div class="answers" v-if="item.multipleChoice">
-                    <div class="question-info">
-                        Più di una risposta è corretta
-                    </div>
+                            <!-- risposta multipla -->
+                            <div class="answers" v-if="item.multipleChoice">
+                                <div class="question-info">
+                                    Più di una risposta è corretta
+                                </div>
 
-                    <!-- slider -->
-                    <div class="slider">
+                                <!-- slider -->
+                                <div class="slider">
 
-                        <button class="btn" 
-                        @click="onTheRight = false"
-                        :class="{'inactive' : !onTheRight}">
-                            <i class="fas fa-angle-left"></i>
-                        </button>
+                                    <button class="btn left" 
+                                    @click="onTheRight = false"
+                                    :class="{'inactive' : !onTheRight}">
+                                        <i class="fas fa-angle-left"></i>
+                                    </button>
 
-                        <div class="slider-wrap">
-                            <!-- ciclo risposte -->
-                            <ul class="answers-container"
-                            :class="{'slider-transition-right' : onTheRight, 'slider-transition-left' : !onTheRight}">
+                                    <div class="slider-wrap">
+                                        <!-- ciclo risposte -->
+                                        <ul class="answers-container"
+                                        :class="{'slider-transition-right' : onTheRight, 'slider-transition-left' : !onTheRight}">
 
-                                <li class="answers-card"
-                                v-for="(element, i) in item.answers" 
-                                :key="i">
-                                    <input type="checkbox" name="answers" 
-                                    :id="i" 
-                                    :value="element" 
-                                    v-model="dataShared.checkedAnswers">
-                                    <label :for="i" :class="checked(element)">
-                                        {{element.answer}}
-                                    </label> 
-                                </li>
+                                            <li class="answers-card"
+                                            v-for="(element, i) in item.answers" 
+                                            :key="i">
+                                                <input type="checkbox" name="answers" 
+                                                :id="i" 
+                                                :value="element" 
+                                                v-model="dataShared.checkedAnswers">
+                                                <label :for="i" :class="checked(element)">
+                                                    {{element.answer}}
+                                                </label> 
+                                            </li>
 
-                            </ul>
-                            <!-- /ciclo risposte -->
+                                        </ul>
+                                        <!-- /ciclo risposte -->
+                                    </div>
+
+                                    <button class="btn right"
+                                    @click="onTheRight = true"
+                                    :class="{'inactive' : onTheRight}">
+                                        <i class="fas fa-angle-right"></i>
+                                    </button>
+                                    <!-- /slider -->
+
+                                </div>
+                            </div>
+                            <!-- /risposta multipla -->
+
+                            <!-- risposta singola -->
+                            <div class="answers" v-else>
+                                <div class="question-info">
+                                    Solo una risposta è corretta
+                                </div>
+                                <!-- slider -->
+                                <div class="slider">
+
+                                    <button class="btn left" 
+                                    @click="onTheRight = false"
+                                    :class="{'inactive' : !onTheRight}">
+                                        <i class="fas fa-angle-left"></i>
+                                    </button>
+
+                                    <div class="slider-wrap">
+                                        <!-- ciclo risposte -->
+                                        <ul class="answers-container"
+                                        :class="{'slider-transition-right' : onTheRight, 'slider-transition-left' : !onTheRight}">
+
+                                            <li class="answers-card"
+                                            v-for="(element, i) in item.answers" 
+                                            :key="i">
+                                                <input type="radio" name="answers" 
+                                                :id="i" 
+                                                :value="element" 
+                                                v-model="dataShared.pickedAnswer">
+                                                <label :for="i" 
+                                                :class="{'selected' : element == dataShared.pickedAnswer}">
+                                                    {{element.answer}}
+                                                </label> 
+                                            </li>
+
+                                        </ul>
+                                        <!-- /ciclo risposte -->
+                                    </div>
+
+                                    <button class="btn right"
+                                    @click="onTheRight = true"
+                                    :class="{'inactive' : onTheRight}">
+                                        <i class="fas fa-angle-right"></i>
+                                    </button>
+                                    <!-- /slider -->
+                                </div>
+                            </div>
+                            <!-- /risposta singola -->
                         </div>
-
-                        <button class="btn"
-                        @click="onTheRight = true"
-                        :class="{'inactive' : onTheRight}">
-                            <i class="fas fa-angle-right"></i>
-                        </button>
-                        <!-- /slider -->
-
-                    </div>
+                    </transition>
                 </div>
-                <!-- /risposta multipla -->
+                
+                <!-- ciclo su quesiti random -->
 
-                <!-- risposta singola -->
-                <div class="answers" v-else>
-                    <div class="question-info">
-                        Solo una risposta è corretta
-                    </div>
-                    <!-- slider -->
-                    <div class="slider">
+                <button class="btn" :class="{'hide-next' : dataShared.timeLeft < 1}"
+                @click="[isCorrect(), nextQuestion()]">
+                    Answer
+                </button>
 
-                        <button class="btn" 
-                        @click="onTheRight = false"
-                        :class="{'inactive' : !onTheRight}">
-                            <i class="fas fa-angle-left"></i>
-                        </button>
-
-                        <div class="slider-wrap">
-                            <!-- ciclo risposte -->
-                            <ul class="answers-container"
-                            :class="{'slider-transition-right' : onTheRight, 'slider-transition-left' : !onTheRight}">
-
-                                <li class="answers-card"
-                                v-for="(element, i) in item.answers" 
-                                :key="i">
-                                    <input type="radio" name="answers" 
-                                    :id="i" 
-                                    :value="element" 
-                                    v-model="dataShared.pickedAnswer">
-                                    <label :for="i" 
-                                    :class="{'selected' : element == dataShared.pickedAnswer}">
-                                        {{element.answer}}
-                                    </label> 
-                                </li>
-
-                            </ul>
-                            <!-- /ciclo risposte -->
+                <!-- Modale minimo risposte -->
+                <transition name="fade-modal">
+                    <div class="overlay" v-if="dataShared.minAnswModal">
+                        <div class="min-Answers-msg">
+                            <h3>Non lasciare campi vuoti!</h3>
+                            <p>Seleziona almeno due opzioni per le domande a risposta multipla</p>
+                            <button class="btn"
+                            @click="[dataShared.minAnswModal = false, dataShared.pauseTimer = false]">
+                                Resume
+                            </button>
                         </div>
-
-                        <button class="btn"
-                        @click="onTheRight = true"
-                        :class="{'inactive' : onTheRight}">
-                            <i class="fas fa-angle-right"></i>
-                        </button>
-                        <!-- /slider -->
                     </div>
-                </div>
-                <!-- /risposta singola -->
+                </transition>
+                <!-- /Modale minimo risposte -->
             </div>
-            <!-- ciclo su quesiti random -->
-
-            <button class="btn" :class="{'hide-next' : dataShared.timeLeft < 1}"
-            @click="[isCorrect(), nextQuestion()]">
-                Answer
-            </button>
-
-            <!-- Modale minimo risposte -->
-            <div class="overlay" v-if="dataShared.minAnswModal">
-                <div class="min-Answers-msg">
-                    <h3>Non lasciare campi vuoti!</h3>
-                    <p>Seleziona almeno due opzioni per le domande a risposta multipla</p>
-                    <button class="btn"
-                    @click="[dataShared.minAnswModal = false, dataShared.pauseTimer = false]">
-                        Resume
-                    </button>
-                </div>
-            </div>
-            <!-- /Modale minimo risposte -->
-        </div>
+        </transition>
         <!-- /domanda e risposte -->
     </div>
 </template>
@@ -156,7 +170,7 @@ export default {
             dataShared,
             x: 0,
             y: 1,
-            onTheRight: false,
+            onTheRight: false
         }
     },
     computed: {
@@ -218,7 +232,6 @@ export default {
                 dataShared.timeLeft = 10;
                 dataShared.testStarted = false;
                 dataShared.endTest = true;
-                clearInterval(dataShared.timer);
             }
         }
     }
@@ -227,7 +240,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/style/partials/mixins.scss';
-.wrap {
+.wrapper {
     height: 515px;
 }
 .btn {
@@ -261,7 +274,7 @@ export default {
             width: 830px;
             height: 205px;
             align-items: center;
-            margin: 0 20px 0 10px;
+            margin: 0 20px 0 8px;
         }
         &-card {
             background: rgba(255, 255, 255, 0.3);
@@ -297,7 +310,7 @@ export default {
                 -moz-transition: 0.5s;
                 -ms-transition: 0.5s;
                 -o-transition: 0.5s;
-                transition: 0.5s;
+                transition: 0.35s;
                 transform: translateX(-285px);
             }
             &-transition-left {
@@ -305,21 +318,32 @@ export default {
                 -moz-transition: 0.5s;
                 -ms-transition: 0.5s;
                 -o-transition: 0.5s;
-                transition: 0.5s;
+                transition: 0.35s;
                 transform: translateX(0px);
             }
             .btn {
                 display: inline-block;
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 30px;
                 margin: 0;
                 align-self: center;
             }
+            .btn.left {
+                i {
+                  transform: translateX(-15%);  
+                }
+            }
+            .btn.right {
+                i {
+                  transform: translateX(10%);  
+                }
+            }
             .btn.inactive {
-                color: black;
+                color: #1f1f1f;
+                opacity: 0.8;
                 background-color: inherit;
-                border: 3.5px solid black;
+                border: 3.5px solid #1f1f1f;
             }
         }
         
@@ -342,10 +366,11 @@ export default {
     height: 300px;
     border-radius: 1rem;
     h3 {
-        font-size: 32px;
+        font-size: 34px;
     }
     p {
         margin: 20px 0 35px;
+        font-size: 17px;
     }
     .btn {
         align-self: center;
@@ -376,5 +401,41 @@ export default {
         height: 45px;
         font-size: 18px;
     }
+}
+// transitions
+// questions
+.fade-enter-active {
+    transition: all 0.6s ease;
+}
+.fade-enter {
+    opacity: 0;
+}
+// min answers modal fade-modal
+.fade-modal-enter-active {
+    transition: all 0.2s ease;
+}
+.fade-modal-leave-active {
+    transition: all 0.2s ease;
+}
+.fade-modal-enter {
+    opacity: 0;
+}
+.fade-modal-leave-to {
+    opacity: 0;
+}
+// test
+.fade-test-enter-active {
+  transition: all 0.3s ease;
+}
+.fade-test-enter {
+  opacity: 0;
+}
+// timeout
+.fade-down-enter-active {
+  transition: all 0.5s ease;
+}
+.fade-down-enter {
+  transform: translateY(-30px);
+  opacity: 0;
 }
 </style>
