@@ -306,18 +306,10 @@ export default {
                 overflow: hidden;
             }
             &-transition-right {
-                -webkit-transition: 0.35s;
-                -moz-transition: 0.35s;
-                -ms-transition: 0.35s;
-                -o-transition: 0.35s;
                 transition: 0.35s;
                 transform: translateX(-285px);
             }
             &-transition-left {
-                -webkit-transition: 0.35s;
-                -moz-transition: 0.35s;
-                -ms-transition: 0.35s;
-                -o-transition: 0.35s;
                 transition: 0.35s;
                 transform: translateX(0px);
             }
@@ -635,18 +627,10 @@ export default {
             }
             .slider {
                 &-transition-right {
-                    -webkit-transition: 0.5s;
-                    -moz-transition: 0.5s;
-                    -ms-transition: 0.5s;
-                    -o-transition: 0.5s;
                     transition: 0.5s;
                     transform: translateX(-500px);
                 }
                 &-transition-left {
-                    -webkit-transition: 0.5s;
-                    -moz-transition: 0.5s;
-                    -ms-transition: 0.5s;
-                    -o-transition: 0.5s;
                     transition: 0.5s;
                 }
                 .btn {
@@ -674,6 +658,87 @@ export default {
     .timeout {
         p {
             font-size: 18px;
+        }
+    }
+}
+// s
+@media screen and (max-width: 630px) {
+    .wrapper {
+        height: 570px;
+    }
+    .btn {
+        margin: 15px 0 0;
+    }
+    .test {
+        .time-left {
+            font-size: 26px;
+            i {
+                font-size: 24px;
+            }
+        }
+        .question {
+            font-size: 30px;
+            margin-top: 5px;
+        }
+        .question-info {
+            font-size: 16px;
+        }
+        .answers {
+            &-container {
+                @include flex-center-column-xy;
+                width: 100%;
+                height: 208px;
+                margin: 0;
+            }
+            &-card {
+                box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
+                width: 97%;
+                height: 35px;
+                margin: 12px 0 0 0;
+                border-radius: 18px;
+                label {
+                    font-size: 17px;
+                }
+            }
+            &-card:hover {
+                transform: none;
+                background: rgba(255, 255, 255, 0.7);
+            }
+            .slider {
+                width: 100%;
+                &-wrap {
+                    width: 100%;
+                }
+                &-transition-right {
+                    transition: 0.5s;
+                    transform: translateX(-500px);
+                }
+                &-transition-left {
+                    transition: 0.5s;
+                }
+                .btn {
+                    display: none;
+                }
+                
+            }
+        }
+    }
+    .min-Answers-msg {
+        height: 256px;
+        width: 390px;
+        padding: 30px;
+        text-align: center;
+        h3 {
+        font-size: 28px;
+        }
+        p {
+            margin: 12px 0 30px;
+            font-size: 16px;
+        }
+    }
+    .timeout {
+        h2 {
+        font-size: 47px;
         }
     }
 }

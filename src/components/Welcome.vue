@@ -96,4 +96,18 @@ p {
         margin: 0 12px 0 0;
     }
 }
+// s
+@media screen and (max-width: 870px) {
+    h2 {
+        font-size: 28px;
+    }
+    p {
+        margin: 25px 0 36px;
+        width: 100%;
+        font-size: 16px;
+    }
+    .btn {
+        margin: 0;
+    }
+}
 </style>

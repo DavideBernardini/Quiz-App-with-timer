@@ -217,4 +217,29 @@ export default {
         }
     }
 }
+// s
+@media screen and (max-width: 630px) {
+    .wrapper {
+        width: 410px;
+        h2 {
+            font-size: 40px;
+        }
+        .score {
+            font-size: 20px;
+            margin: 22px 0 30px;
+        }
+        .retry-message {
+            font-size: 20px;
+        }
+        .fa-frown {
+            font-size: 32px;
+            vertical-align: middle;
+        }
+        .btn {
+            width: 41px;
+            height: 41px;
+            font-size: 17px;
+        }
+    }
+}
 </style>
