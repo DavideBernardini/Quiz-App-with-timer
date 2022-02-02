@@ -1,4 +1,4 @@
-# colloquio-test-davide-bernardini
+# Quiz-App-with-timer
 
 ## Project setup
 ```
