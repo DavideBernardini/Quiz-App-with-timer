@@ -106,14 +106,14 @@ export default {
 
 .wrapper {
     @include flex-center-column-xy;
-    width: 980px;
-    height: 460px;
+    width: 970px;
+    height: 445px;
     h2 {
         font-size: 75px;
     }
     .score {
         font-size: 25px;
-        margin: 20px 0 40px;
+        margin: 15px 0 30px;
         text-align: center;
         &-percentage {
             span {

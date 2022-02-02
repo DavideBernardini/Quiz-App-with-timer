@@ -28,7 +28,9 @@ export default {
             dataShared.timeOut = false;
             dataShared.timeLeft = 10;
             dataShared.testStarted = true;
-            dataShared.timer();
+            if (dataShared.attempts < 1) {
+               dataShared.timer(); 
+            }
             dataShared.attempts++;
 
         }
