@@ -67,7 +67,7 @@ export default {
   transition: all 0.8s ease;
 }
 .appear-down-enter {
-  transform: translateY(-20px);
+  transform: translateY(-1.25rem);
   opacity: 0;
 }
 // Test
@@ -75,7 +75,7 @@ export default {
   transition: all 0.8s ease;
 }
 .appear-left-enter {
-  transform: translatex(30px);
+  transform: translatex(1.875rem);
   opacity: 0;
 }
 // feedback 

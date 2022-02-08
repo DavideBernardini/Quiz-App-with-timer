@@ -46,67 +46,67 @@ export default {
 }
 
 h2 {
-    font-size: 44px;
+    font-size: 2.75rem;
     text-align: left;
 }
 p {
-    margin: 22px 0 50px;
-    font-size: 20.5px;
+    margin: 1.375rem 0 3.125rem;
+    font-size: 1.2813rem;
     width: 80%;
 }
 .btn {
     align-self: flex-end;
-    margin-right: 55px;
+    margin-right: 3.4375rem;
 }
 
 // responsive
 // xl 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 81.25rem) {
     h2 {
-        font-size: 36px;
+        font-size: 2.25rem;
     }
     p {
-        margin: 22px 0 40px;
-        font-size: 19px;
+        margin: 1.375rem 0 2.5rem;
+        font-size: 1.1875rem;
         width: 75%;
     }
     .btn {
-        margin-right: 35px;
+        margin-right: 2.1875rem;
     }
 }
 // l
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 68.75rem) {
     h2 {
-        font-size: 36px;
+        font-size: 2.25rem;
     }
     p {
-        margin: 20px 0 25px;
-        font-size: 18px;
+        margin: 1.25rem 0 1.5625rem;
+        font-size: 1.125rem;
         width: 71%;
     }
     .btn {
-        margin-right: 35px;
+        margin-right: 2.1875rem;
     }
 }
 // m
-@media screen and (max-width: 870px) {
+@media screen and (max-width: 54.375rem) {
     p {
-        margin: 25px 0 36px;
+        margin: 1.5625rem 0 2.25rem;
         width: 100%;
     }
     .btn {
-        margin: 0 12px 0 0;
+        margin: 0 .75rem 0 0;
     }
 }
 // s
-@media screen and (max-width: 870px) {
+@media screen and (max-width: 54.375rem) {
     h2 {
-        font-size: 28px;
+        font-size: 1.75rem;
     }
     p {
-        margin: 25px 0 36px;
+        margin: 1.5625rem 0 2.25rem;
         width: 100%;
-        font-size: 16px;
+        font-size: 1rem;
     }
     .btn {
         margin: 0;

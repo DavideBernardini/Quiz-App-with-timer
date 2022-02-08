@@ -31,10 +31,10 @@ ul {
     color: #fff;
     background-color: #1f1f1f;
     font-weight: bold;
-    width: 142px;
-    height: 45px;
-    font-size: 18px;
-    border-radius: 8px;
+    width: 8.875rem;
+    height: 2.8125rem;
+    font-size: 1.125rem;
+    border-radius: .5rem;
     transition: transform 150ms ease;
 }
 .btn:hover {
@@ -52,54 +52,54 @@ input {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 1200px;
-    height: 500px;
-    padding: 50px 70px;
+    width: 75rem;
+    height: 31.25rem;
+    padding: 3.125rem 4.375rem;
     background: rgba(255, 255, 255, 0.375);
     box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
     border-radius: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+    border: .0625rem solid rgba(255, 255, 255, 0.125);
 }
 
 // responsive
 // xl
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 81.25rem) {
     .wrapper {
-        width: 1000px;
-        height: 440px;
+        width: 62.5rem;
+        height: 27.5rem;
     }
     .btn {
-        width: 132px;
-        height: 43px;
-        font-size: 17px;
+        width: 8.25rem;
+        height: 2.6875rem;
+        font-size: 1.0625rem;
     }
 }
 // l
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 68.75rem) {
     .wrapper {
-        width: 800px;
-        height: 440px;
-        padding: 45px 65px;
+        width: 50rem;
+        height: 27.5rem;
+        padding: 2.8125rem 4.0625rem;
     }
     .btn {
-        width: 125px;
-        height: 40px;
-        font-size: 16px;
+        width: 7.8125rem;
+        height: 2.5rem;
+        font-size: 1rem;
     }
 }
 // m
-@media screen and (max-width: 870px) {
+@media screen and (max-width: 54.375rem) {
     .wrapper {
-        width: 600px;
-        height: 510px;
-        padding: 45px 65px;
+        width: 37.5rem;
+        height: 31.875rem;
+        padding: 2.8125rem 4.0625rem;
     }
 }
 // s
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 39.375rem) {
     .wrapper {
-        width: 410px;
-        height: 500px;
-        padding: 45px 38px;
+        width: 25.625rem;
+        height: 31.25rem;
+        padding: 2.8125rem 2.375rem;
     }
 }

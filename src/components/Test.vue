@@ -241,48 +241,48 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/partials/mixins.scss';
 .wrapper {
-    height: 515px;
+    height: 32.1875rem;
 }
 .btn {
         align-self: flex-end;
-        margin: 15px 28px 0;
+        margin: .9375rem 1.75rem 0;
     }
 .test {
     @include flex-column;
     .time-left {
         text-align: right;
-        font-size: 33px;
+        font-size: 2.0625rem;
         font-weight: bold;
         .fas {
-            font-size: 25px;
+            font-size: 1.5625rem;
         }
     }
     .question {
-        font-size: 36px;
+        font-size: 2.25rem;
     }
     .question-info {
         align-self: flex-start;
         font-weight: 300;
-        margin-left: 5px;
-        margin-top: 5px;
-        font-size: 18px;
+        margin-left: .3125rem;
+        margin-top: .3125rem;
+        font-size: 1.125rem;
     }
     .answers {
         @include flex-center-column-x;
         &-container {
             display: flex;
-            width: 830px;
-            height: 205px;
+            width: 51.875rem;
+            height: 12.8125rem;
             align-items: center;
-            margin: 0 20px 0 8px;
+            margin: 0 1.25rem 0 .5rem;
         }
         &-card {
             background: rgba(255, 255, 255, 0.3);
             box-shadow: 0 0.9rem 1.5rem 0 rgba(0, 0, 0, 0.1);
             border-radius: 1rem;
-            width: 220px;
-            height: 120px;
-            margin: 0 30px;
+            width: 13.75rem;
+            height: 7.5rem;
+            margin: 0 1.875rem;
             transition: transform 200ms ease;
             overflow: hidden;
             flex-shrink: 0;
@@ -293,7 +293,7 @@ export default {
                 align-items: center;
                 width: 100%;
                 height: 100%;
-                font-size: 20px;
+                font-size: 1.25rem;
                 text-align: center;
             }
         }
@@ -307,17 +307,17 @@ export default {
             }
             &-transition-right {
                 transition: 0.35s;
-                transform: translateX(-285px);
+                transform: translateX(-17.8125rem);
             }
             &-transition-left {
                 transition: 0.35s;
-                transform: translateX(0px);
+                transform: translateX(0rem);
             }
             .btn {
                 display: inline-block;
-                width: 40px;
-                height: 40px;
-                font-size: 30px;
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1.875rem;
                 margin: 0;
                 align-self: center;
             }
@@ -335,7 +335,7 @@ export default {
                 color: #1f1f1f;
                 opacity: 0.8;
                 background-color: inherit;
-                border: 3.5px solid #1f1f1f;
+                border: .2188rem solid #1f1f1f;
             }
         }
         
@@ -354,15 +354,15 @@ export default {
     z-index: 10;
     background-color: rgb(240, 248, 255);
     box-shadow: 0 0.9rem 1.5rem 0 rgba(255, 255, 255, 0.1);
-    width: 600px;
-    height: 300px;
+    width: 37.5rem;
+    height: 18.75rem;
     border-radius: 1rem;
     h3 {
-        font-size: 34px;
+        font-size: 2.125rem;
     }
     p {
-        margin: 20px 0 35px;
-        font-size: 17px;
+        margin: 1.25rem 0 2.1875rem;
+        font-size: 1.0625rem;
     }
     .btn {
         align-self: center;
@@ -382,16 +382,16 @@ export default {
 .timeout {
     @include flex-center-column-xy;
     h2 {
-        font-size: 65px;
+        font-size: 4.0625rem;
     }
     p {
-        font-size: 24px;
-        margin: 30px 0 50px;
+        font-size: 1.5rem;
+        margin: 1.875rem 0 3.125rem;
     }
     .btn {
-        width: 150px;
-        height: 45px;
-        font-size: 18px;
+        width: 9.375rem;
+        height: 2.8125rem;
+        font-size: 1.125rem;
         align-self: center;
     }
 }
@@ -428,112 +428,112 @@ export default {
   transition: all 0.5s ease;
 }
 .fade-down-enter {
-  transform: translateY(-30px);
+  transform: translateY(-1.875rem);
   opacity: 0;
 }
 
 // responsive
 // xl
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 81.25rem) {
     .wrapper {
-        height: 505px;
+        height: 31.5625rem;
     }
     .test {
         .time-left {
-            font-size: 30px;
+            font-size: 1.875rem;
             i {
-                font-size: 28px;
+                font-size: 1.75rem;
             }
         }
         .question {
-            font-size: 33px;
+            font-size: 2.0625rem;
         }
         .question-info {
-            font-size: 17px;
+            font-size: 1.0625rem;
         }
         .answers {
             &-container {
-                width: 758px;
-                height: 178px;
+                width: 47.375rem;
+                height: 11.125rem;
             }
             &-card {
                 box-shadow: 0 0.7rem 1.3rem 0 rgba(0, 0, 0, 0.1);
-                width: 210px;
-                height: 110px;
-                margin: 0 24px;
+                width: 13.125rem;
+                height: 6.875rem;
+                margin: 0 1.5rem;
                 label {
-                    font-size: 19px;
+                    font-size: 1.1875rem;
                 }
             }
             .slider {
                 &-transition-right {
-                    transform: translateX(-258px);
+                    transform: translateX(-16.125rem);
                 }
             }
             .btn {
-                width: 38px;
-                height: 38px;
-                font-size: 28px;
+                width: 2.375rem;
+                height: 2.375rem;
+                font-size: 1.75rem;
                 }
             .btn.left {
                 i {
-                    transform: translateX(-2px);  
+                    transform: translateX(-0.125rem);  
                 }
             }
             .btn.right {
                 i {
-                    transform: translateX(2px);  
+                    transform: translateX(.125rem);  
                 }
             }
         }
     }
     .min-Answers-msg {
-        height: 290px;
+        height: 18.125rem;
     }
     .timeout {
     h2 {
-        font-size: 60px;
+        font-size: 3.75rem;
     }
     p {
-        font-size: 21px;
-        margin: 30px 0 45px;
+        font-size: 1.3125rem;
+        margin: 1.875rem 0 2.8125rem;
     }
     .btn {
-        width: 140px;
-        height: 42px;
-        font-size: 16px;
+        width: 8.75rem;
+        height: 2.625rem;
+        font-size: 1rem;
     }
 }
 }
 // l
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 68.75rem) {
     .wrapper {
-        height: 505px;
+        height: 31.5625rem;
     }
     .test {
         .time-left {
-            font-size: 28px;
+            font-size: 1.75rem;
             i {
-                font-size: 26px;
+                font-size: 1.625rem;
             }
         }
         .question {
-            font-size: 33px;
+            font-size: 2.0625rem;
         }
         .question-info {
-            font-size: 17px;
+            font-size: 1.0625rem;
         }
         .answers {
             &-container {
-                width: 544px;
+                width: 34rem;
             }
             &-card {
                 box-shadow: 0 0.7rem 1.3rem 0 rgba(0, 0, 0, 0.1);
-                width: 230px;
-                height: 110px;
-                margin: 0 24px;
+                width: 14.375rem;
+                height: 6.875rem;
+                margin: 0 1.5rem;
                 label {
-                    font-size: 18px;
+                    font-size: 1.125rem;
                 }
             }
             .slider {
@@ -543,7 +543,7 @@ export default {
                     -ms-transition: 0.45s;
                     -o-transition: 0.45s;
                     transition: 0.45s;
-                    transform: translateX(-560px);
+                    transform: translateX(-35rem);
                 }
                 &-transition-left {
                     -webkit-transition: 0.45s;
@@ -554,95 +554,95 @@ export default {
                 }
             }
             .btn {
-                width: 38px;
-                height: 38px;
-                font-size: 28px;
+                width: 2.375rem;
+                height: 2.375rem;
+                font-size: 1.75rem;
                 }
             .btn.left {
                 i {
-                    transform: translateX(-2px);  
+                    transform: translateX(-0.125rem);  
                 }
             }
             .btn.right {
                 i {
-                    transform: translateX(2px);  
+                    transform: translateX(.125rem);  
                 }
             }
         }
     }
     .min-Answers-msg {
-        height: 290px;
+        height: 18.125rem;
     }
     .timeout {
     h2 {
-        font-size: 58px;
+        font-size: 3.625rem;
     }
     p {
-        font-size: 20px;
-        margin: 30px 0 40px;
+        font-size: 1.25rem;
+        margin: 1.875rem 0 2.5rem;
         text-align: center;
     }
     .btn {
-        width: 140px;
-        height: 42px;
-        font-size: 16px;
+        width: 8.75rem;
+        height: 2.625rem;
+        font-size: 1rem;
     }
 }
 }
 // m
-@media screen and (max-width: 870px) {
+@media screen and (max-width: 54.375rem) {
     .wrapper {
-        height: 525px;
+        height: 32.8125rem;
     }
     .btn {
-        margin: 15px 0 0;
+        margin: .9375rem 0 0;
     }
     .test {
         .time-left {
-            font-size: 28px;
+            font-size: 1.75rem;
             i {
-                font-size: 26px;
+                font-size: 1.625rem;
             }
         }
         .question {
-            font-size: 30px;
-            margin-top: 10px;
+            font-size: 1.875rem;
+            margin-top: .625rem;
         }
         .question-info {
-            font-size: 16px;
+            font-size: 1rem;
         }
         .answers {
             &-container {
-                width: 493px;
-                margin: 0 15px 0 8px;
+                width: 30.8125rem;
+                margin: 0 .9375rem 0 .5rem;
             }
             &-card {
                 box-shadow: 0 0.7rem 1.3rem 0 rgba(0, 0, 0, 0.1);
-                width: 210px;
-                height: 110px;
-                margin: 0 20px;
+                width: 13.125rem;
+                height: 6.875rem;
+                margin: 0 1.25rem;
                 label {
-                    font-size: 17px;
+                    font-size: 1.0625rem;
                 }
             }
             .slider {
                 &-transition-right {
                     transition: 0.5s;
-                    transform: translateX(-500px);
+                    transform: translateX(-31.25rem);
                 }
                 &-transition-left {
                     transition: 0.5s;
                 }
                 .btn {
-                    font-size: 40px;
+                    font-size: 2.5rem;
                     background: none;
                     color: #1f1f1f;
                     }
                 .btn.left {
-                    transform: translate(10px);
+                    transform: translate(.625rem);
                 }
                 .btn.right {
-                    transform: translate(-10px);
+                    transform: translate(-0.625rem);
                 }
                 .btn.inactive {
                     border: none;
@@ -652,52 +652,52 @@ export default {
         }
     }
     .min-Answers-msg {
-        height: 290px;
-        width: 580px;
+        height: 18.125rem;
+        width: 36.25rem;
     }
     .timeout {
         p {
-            font-size: 18px;
+            font-size: 1.125rem;
         }
     }
 }
 // s
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 39.375rem) {
     .wrapper {
-        height: 570px;
+        height: 35.625rem;
     }
     .btn {
-        margin: 15px 0 0;
+        margin: .9375rem 0 0;
     }
     .test {
         .time-left {
-            font-size: 26px;
+            font-size: 1.625rem;
             i {
-                font-size: 24px;
+                font-size: 1.5rem;
             }
         }
         .question {
-            font-size: 30px;
-            margin-top: 5px;
+            font-size: 1.875rem;
+            margin-top: .3125rem;
         }
         .question-info {
-            font-size: 16px;
+            font-size: 1rem;
         }
         .answers {
             &-container {
                 @include flex-center-column-xy;
                 width: 100%;
-                height: 208px;
+                height: 13rem;
                 margin: 0;
             }
             &-card {
-                box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);
+                box-shadow: 0rem 0rem .375rem 0rem rgba(0, 0, 0, 0.1);
                 width: 97%;
-                height: 35px;
-                margin: 12px 0 0 0;
-                border-radius: 18px;
+                height: 2.1875rem;
+                margin: .75rem 0 0 0;
+                border-radius: 1.125rem;
                 label {
-                    font-size: 17px;
+                    font-size: 1.0625rem;
                 }
             }
             &-card:hover {
@@ -711,7 +711,7 @@ export default {
                 }
                 &-transition-right {
                     transition: 0.5s;
-                    transform: translateX(-500px);
+                    transform: translateX(-31.25rem);
                 }
                 &-transition-left {
                     transition: 0.5s;
@@ -724,21 +724,21 @@ export default {
         }
     }
     .min-Answers-msg {
-        height: 256px;
-        width: 390px;
-        padding: 30px;
+        height: 16rem;
+        width: 24.375rem;
+        padding: 1.875rem;
         text-align: center;
         h3 {
-        font-size: 28px;
+        font-size: 1.75rem;
         }
         p {
-            margin: 12px 0 30px;
-            font-size: 16px;
+            margin: .75rem 0 1.875rem;
+            font-size: 1rem;
         }
     }
     .timeout {
         h2 {
-        font-size: 47px;
+        font-size: 2.9375rem;
         }
     }
 }

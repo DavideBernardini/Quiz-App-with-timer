@@ -106,14 +106,14 @@ export default {
 
 .wrapper {
     @include flex-center-column-xy;
-    width: 970px;
-    height: 445px;
+    width: 60.625rem;
+    height: 27.8125rem;
     h2 {
-        font-size: 75px;
+        font-size: 4.6875rem;
     }
     .score {
-        font-size: 25px;
-        margin: 15px 0 30px;
+        font-size: 1.5625rem;
+        margin: .9375rem 0 1.875rem;
         text-align: center;
         &-percentage {
             span {
@@ -122,123 +122,123 @@ export default {
         }
     }
     .retry-message {
-        font-size: 24px;
+        font-size: 1.5rem;
         font-weight: 500;
     }
     .fa-frown {
-        font-size: 32px;
+        font-size: 2rem;
         vertical-align: top;
     }
     .fa-trophy {
-        font-size: 35px;
+        font-size: 2.1875rem;
         vertical-align: bottom;
     }
     .btn {
         display: inline-block;
-        width: 45px;
-        height: 45px;
-        font-size: 20px;
-        margin-left: 5px;
+        width: 2.8125rem;
+        height: 2.8125rem;
+        font-size: 1.25rem;
+        margin-left: .3125rem;
     }
 }
 
 // responsive
 // xl 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 81.25rem) {
     .wrapper {
-        width: 920px;
-        height: 436px;
+        width: 57.5rem;
+        height: 27.25rem;
         h2 {
-            font-size: 65px;
+            font-size: 4.0625rem;
         }
         .score {
-            font-size: 23px;
-            margin: 20px 0 40px;
+            font-size: 1.4375rem;
+            margin: 1.25rem 0 2.5rem;
         }
         .retry-message {
-            font-size: 22px;
+            font-size: 1.375rem;
         }
         .fa-frown {
-            font-size: 32px;
+            font-size: 2rem;
             vertical-align: middle;
         }
         .btn {
-            width: 42px;
-            height: 42px;
-            font-size: 18px;
+            width: 2.625rem;
+            height: 2.625rem;
+            font-size: 1.125rem;
         }
     }
 }
 // l
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 68.75rem) {
     .wrapper {
-        width: 800px;
+        width: 50rem;
         h2 {
-            font-size: 62px;
+            font-size: 3.875rem;
         }
         .score {
-            font-size: 22px;
+            font-size: 1.375rem;
         }
         .retry-message {
-            font-size: 21px;
+            font-size: 1.3125rem;
         }
         .fa-frown {
-            font-size: 32px;
+            font-size: 2rem;
             vertical-align: middle;
         }
         .btn {
-            width: 42px;
-            height: 42px;
-            font-size: 18px;
+            width: 2.625rem;
+            height: 2.625rem;
+            font-size: 1.125rem;
         }
     }
 }
 // m
-@media screen and (max-width: 870px) {
+@media screen and (max-width: 54.375rem) {
     .wrapper {
-        width: 600px;
+        width: 37.5rem;
         h2 {
-            font-size: 54px;
+            font-size: 3.375rem;
         }
         .score {
-            font-size: 22px;
+            font-size: 1.375rem;
         }
         .retry-message {
-            font-size: 21px;
+            font-size: 1.3125rem;
         }
         .fa-frown {
-            font-size: 32px;
+            font-size: 2rem;
             vertical-align: middle;
         }
         .btn {
-            width: 42px;
-            height: 42px;
-            font-size: 18px;
+            width: 2.625rem;
+            height: 2.625rem;
+            font-size: 1.125rem;
         }
     }
 }
 // s
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 39.375rem) {
     .wrapper {
-        width: 410px;
+        width: 25.625rem;
         h2 {
-            font-size: 40px;
+            font-size: 2.5rem;
         }
         .score {
-            font-size: 20px;
-            margin: 22px 0 30px;
+            font-size: 1.25rem;
+            margin: 1.375rem 0 1.875rem;
         }
         .retry-message {
-            font-size: 20px;
+            font-size: 1.25rem;
         }
         .fa-frown {
-            font-size: 32px;
+            font-size: 2rem;
             vertical-align: middle;
         }
         .btn {
-            width: 41px;
-            height: 41px;
-            font-size: 17px;
+            width: 2.5625rem;
+            height: 2.5625rem;
+            font-size: 1.0625rem;
         }
     }
 }
